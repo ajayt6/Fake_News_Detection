@@ -1,0 +1,17 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [{
+      "matches": ["http://*/*","https://*/*", "http://ec2-52-42-76-33.us-west-2.compute.amazonaws.com:3000/*"],
+      "js": ["contentScript.js"]
+   }],
+   "description": "Simple fake news detection helper extension",
+   "browser_action": {
+      "default_popup": "popup.html"
+   },
+   "manifest_version": 2,
+   "name": "Fake News",
+   "permissions": [ "activeTab","https://www.google.com/*","http://www.google.com/*", "https://www.snopes.com/*", "http://www.snopes.com/*"],
+   "version": "0.1.00"
+}
