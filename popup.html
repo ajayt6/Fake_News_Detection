@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
+        <head>
         <style>
             body { 
-                min-width: 420px; 
+                min-width: 210px; 
+                min-height: 210px;
                 overflow-x: hidden; 
                 font-family: Arial, sans-serif; 
                 font-size: 12px; 
@@ -14,38 +15,71 @@
             input#save { 
                 font-weight: bold; width: auto; 
             }
-        </style>
 
+
+            /* Center the loader */
+            #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            }
+
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            /* Add animation to "page content" */
+            .animate-bottom {
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1s;
+                animation-name: animatebottom;
+                animation-duration: 1s
+            }
+
+            @-webkit-keyframes animatebottom {
+                from { bottom:-100px; opacity:0 } 
+                to { bottom:0px; opacity:1 }
+            }
+
+            @keyframes animatebottom { 
+                from{ bottom:-100px; opacity:0 } 
+                to{ bottom:0; opacity:1 }
+            }
+
+            #myDiv {
+                display: none;
+                text-align: center;
+            }
+        </style>
     </head>
-    <body>
-<!--
-        <form id="addbookmark">
-            <p><label for="sitename">Sitename</label><br />
-            <input type="text" id="sitename" name="sitename" size="50" value="" /></p>
-            <p><label for="username">User Name</label><br />
-            <input type="text" id="username" name="username" size="50" value="" /></p>
-            <p><label for="password">Password</label><br />
-            <input type="password" id="password" name="password" size="50" value="" /></p>
-            <!-- <p><label for="summary">Summary</label><br />
-            <textarea id="summary" name="summary" rows="6" cols="35"></textarea></p>
-            -->
-<!--
-            <p><label for="tags">Tags</label><br />
-            <input type="text" id="tags" name="tags" size="50" value="" /></p>
-            <p>
-                <input id="save" type="submit" value="Save Login Info" />
-                <span id="status-display"></span>
-            </p>
--->
-            <!--    <a href="#" id="signOut" onclick="signOut();">Sign Out</a>  -->
-<!--        </form>
-        <form onsubmit="signOut()">
-            <br>
-            <input id="signOut" type="submit"  value="Sign Out" />
-        </form>
--->
-	Hello. We are deciding. Please wait. Thank you!
-        <script src="popup.js"></script>
+    <body onload="myFunction()" style="margin:0;">
+
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h2>Tada!</h2>
+        <p>Some text in my newly loaded page..</p>
+    </div>
+
+    <script src="popup.js"></script>
 
     </body>
 </html>

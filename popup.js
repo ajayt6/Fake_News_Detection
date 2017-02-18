@@ -62,7 +62,7 @@ function httpGetAsync(theUrl, callback)
 				if( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif") )
 				{
 					//Change html body accordingly
-					document.body.innerHTML = "False";
+					document.body.innerHTML = "<img src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif' >"; //"False";
 				}
 				else if ( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-green.gif") )
 				{
@@ -95,6 +95,13 @@ chrome.tabs.getSelected(null, function(tab) {
     });
 });
 
-function getText(){
-    return document.body.innerText
+var myVar;
+
+function myFunction() {
+	myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+	document.getElementById("loader").style.display = "none";
+	document.getElementById("myDiv").style.display = "block";
 }
