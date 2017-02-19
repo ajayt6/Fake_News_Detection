@@ -73,11 +73,11 @@ function httpGetAsync(theUrl, callback)
 				if( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif") )
 				{
 					//Change html body accordingly
-					document.body.innerHTML = "<img style='width:210px;height:210px' src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/St_Patrick's_saltire.svg/1200px-St_Patrick's_saltire.svg.png' >"; //"False";
+					document.body.innerHTML = "<img style='width:210px;height:210px' src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif' >"; //"False";
 				}
 				else if ( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-green.gif") )
 				{
-					document.body.innerHTML = "<img height='210' width='210' src='https://upload.wikimedia.org/wikipedia/commons/a/ac/Green_tick.svg' >"; //"True";
+					document.body.innerHTML = "<img height='210' width='210' src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-green.gif' >"; //"True";
 				}
 				else
 				{
