@@ -43,12 +43,23 @@ function httpGetAsync(theUrl, callback)
 				
 				//Now call this function again if theURL is a google URL
 				
+				var responseDiv = document.createElement("div");
+				responseDiv.innerHTML = xmlHttp.response; //HttpRequest.innerText
+				responseDiv.style.display = 'none';
+
+				var results = responseDiv.querySelectorAll('.r > a');
+				console.log("RAHUL CLASS START");
+				console.log(String(results[0].attributes.href));
+				console.log("RAHUL CLASS END");
 				
-				var finalURL = "http://www.snopes.com/trump-putin-switzerland/";
+				//alert("The first URL: " + String(results[0]));//(results[0].attributes.href));
+				
+				var finalURL = String(results[0]);//"http://www.snopes.com/2017/02/18/scientists-discover-new-continent/" //"http://www.snopes.com/obama-deported-more-people/"; //"http://www.snopes.com/trump-putin-switzerland/";
 				httpGetAsync( finalURL, function() {
 				alert("inside async of finalURL");
 				});
-			
+				
+				
 			}
 		}
 	}
@@ -62,15 +73,15 @@ function httpGetAsync(theUrl, callback)
 				if( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif") )
 				{
 					//Change html body accordingly
-					document.body.innerHTML = "<img src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif' >"; //"False";
+					document.body.innerHTML = "<img style='width:210px;height:210px' src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-red.gif' >"; //"False";
 				}
 				else if ( xmlHttp.response.includes("http://www.snopes.com/app/themes/snopes-theme/dist/images/det-green.gif") )
 				{
-					document.body.innerHTML = "True";
+					document.body.innerHTML = "<img height='210' width='210' src='http://www.snopes.com/app/themes/snopes-theme/dist/images/det-green.gif' >"; //"True";
 				}
 				else
 				{
-					document.body.innerHTML = "Sorry. Truth check does not have sufficient info. You decide!";
+					document.body.innerHTML = "<img height='210' width='210' src='http://worldartsme.com/images/unsure-clipart-1.jpg' >"//"Sorry. Truth check does not have sufficient info. You decide!";
 				}
 			}
 		}
